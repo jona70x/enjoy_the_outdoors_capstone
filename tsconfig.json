@@ -6,6 +6,9 @@
     "strict": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
     "paths": {
       "*": ["node_modules/*"]
