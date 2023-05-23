@@ -6,6 +6,10 @@
 // @import "base/base";
 // @import "base/_typography";
 
+body {
+  background-color: #f7f7f7;
+}
+
 $color-primary: #55c57a;
 $color-primary-light: #7ed56f;
 $color-secondary: #28b485;
@@ -72,13 +76,21 @@ li {
   }
 
   &-background {
-    background: radial-gradient($color-primary-light, $color-primary);
+    background: radial-gradient(
+      $color-primary-light,
+      $color-primary
+    ) !important;
   }
 }
 
 .custom-container {
   overflow-y: auto;
-  max-height: 45rem;
+  max-height: 50rem;
+  //  x ma-height: 45rem;
+}
+
+.custom-height {
+  height: 50rem;
 }
 
 .select-container {
@@ -89,6 +101,114 @@ li {
   height: 3rem;
 }
 
-.custom-height {
-  height: 50rem;
+// Parks / Mountains card
+
+.park-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+}
+
+.modal-background {
+  background: radial-gradient($color-primary-light, $color-primary) !important;
+}
+
+ul {
+  margin: 0;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  line-height: inherit;
+}
+
+// Video
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.5;
+  overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
+
+  &__content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.hero-text {
+  color: black;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+  text-align: center;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &--main {
+    display: block;
+    font-size: 4rem;
+    font-weight: 400;
+    letter-spacing: 1rem;
+    margin-bottom: 1rem;
+
+    // animation-name: moveInLeft;
+    // animation-duration: 1s;
+    // animation-timing-function: ease-out;
+  }
+
+  &--sub {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1.2rem;
+    // animation: moveInRight 1s ease-out;
+  }
+}
+
+.title-custom {
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.5rem;
+  color: $color-primary;
+}
+
+// Animations
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation-name: fadeIn;
+  animation-duration: 0.3s;
 }

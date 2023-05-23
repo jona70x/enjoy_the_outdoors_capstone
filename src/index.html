@@ -41,18 +41,38 @@
     </header>
     <main>
       <!-- Video and some other content -->
+      <div class="container-fluid">
+        <section class="row">
+          <div class="col position-relative" style="height: 30rem">
+            <!-- Video Box -->
+            <div class="bg-video">
+              <video class="bg-video__content" autoplay muted loop>
+                <source src="assets/parks-video.mp4" type="video/mp4" />
+                Your browser is not supported!
+              </video>
+            </div>
+            <!-- Text Box -->
+            <h1 class="position-absolute hero-text">
+              <span class="hero-text--main">Outdoors</span>
+              <span class="hero-text--sub">Is where life happens</span>
+            </h1>
+          </div>
+        </section>
+      </div>
 
       <!-- Dropdown section -->
       <section class="container-fluid">
-        <!-- Select by location -->
-
-        <div
-          class="row gap-2 justify-content-center custom-height border p-2 mx-2"
-        >
+        <div class="col-12 my-5 text-center">
+          <h2 class="title-custom">Exploring America's Natural Treasures</h2>
+        </div>
+        <div class="row gap-2 justify-content-center p-2 mx-2">
           <div
-            class="col-8 col-lg-3 row flex-column h-lg-100 gap-3 p-4 mt-lg-2"
+            class="col-12 align-self-start col-md-8 col-lg-4 row flex-column h-lg-100 gap-3 p-4 mt-lg-2 select-container"
           >
+            <!-- Select by location -->
+
             <div class="col-12 mb-2">
+              <h5 class="mb-2">Search by Location</h5>
               <select
                 name="select-park-location"
                 id="select-park-location"
@@ -65,6 +85,7 @@
             <!-- Select by park type -->
 
             <div class="col-12">
+              <h5 class="mb-2">Search by Type</h5>
               <select
                 name="select-park-type"
                 id="select-park-type"
@@ -75,11 +96,10 @@
             </div>
           </div>
           <!-- Parks container  -->
-          <div class="col-12 col-lg-9">
+          <div class="col-12 col-lg-8 custom-height">
             <div
-              class="parks-container p-4 w-100 flex-wrap d-flex align-items-center justify-content-around custom-container gap-3 mx-0"
+              class="parks-container custom-container p-4 w-100 gap-2 flex-wrap d-flex mx-0 align-items-start"
             ></div>
-            <!-- Cards -->
           </div>
         </div>
       </section>

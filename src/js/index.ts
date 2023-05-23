@@ -50,6 +50,7 @@ interface Park {
   Fax: string | number;
   Latitude: number;
   Longitude: number;
+  Visit?: string;
   Location: { coordinates: number[]; type: string };
 }
 
@@ -59,6 +60,21 @@ interface Helpers {
   attachModal: () => void;
   handleCardClick: (event: Event) => void;
 }
+
+// If parks container is empty, add a div with some information
+
+const addInformationContent = (parksArray: Park[]) => {
+  if (parksArray.length === 0) {
+    parksContainer.innerHTML = `
+    <div class="fs-4  text-center">
+              Please select your preferences to discover the perfect park for
+              your next adventure.
+    </div>
+    `;
+  } else {
+    return;
+  }
+};
 
 // Functions
 const helpers: Helpers = {
@@ -71,8 +87,8 @@ const helpers: Helpers = {
       // Create a card element for each element in the array
       (parkHtml) =>
         `
-        <div class="card card-background cursor-pointer">
-        <div class="card__icon fs-1"><span>🏔️</span></div>
+        <div class="card card-background cursor-pointer mb-4 fade-in">
+        <div class="card__icon fs-2"><span>🏔️</span></div>
         <h4 class="card__title">
           ${parkHtml.LocationName}
         </h4>
@@ -108,23 +124,46 @@ const helpers: Helpers = {
         actualParkIndex = parseInt(parkIndex);
         // Generate modal content
         myModal.innerHTML = `
-      <div class="modal-dialog modal-dialog-centered ">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title fs-5 r" id="exampleModalLabel">${actualPark.LocationName}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-background ">
+          <div class="modal-body align-items-center  justify-content-center d-flex flex-column">
+            <div class="card park-card overflow-hidden" style="width: 25rem; height:auto">
+                
+                <div class="card-body">
+                  <h3 class="card-title text-center mb-4">${
+                    actualPark.LocationName
+                  } 🏔️</h3>
+                  <p class="card-text">
+                    <ul class='lh-lg'>
+                        <li><span class='fw-bold'>Address: </span>${
+                          actualPark.Address
+                        }</li>
+                      <li><span class='fw-bold'>City: </span>${
+                        actualPark.City
+                      }, ${actualPark.State}. ${actualPark.ZipCode}</li>
+                      <li><span class='fw-bold'>Phone: </span>${
+                        actualPark.Phone === 0
+                          ? "No Phone Available"
+                          : actualPark.Phone
+                      }</li>
+                      <li><span class='fw-bold'>Fax: </span>${
+                        actualPark.Fax === 0
+                          ? "No Fax Available"
+                          : actualPark.Fax
+                      }</li>
+                      <li><span class='fw-bold'>Coordinates: </span>${
+                        actualPark.Latitude
+                      }, ${actualPark.Longitude}</li>
+                    </ul>
+              
+                  
+                  </p>
+                </div>
+            </div>
           </div>
-          <div class="modal-body align-items-center justify-content-center d-flex flex-column">
-          <div class="card" style="width: 18rem;">
-          <div class="card-body ">
-            <h5 class="card-title text-center">${actualPark.LocationName}</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          </div>
-        </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary btn-save">Save changes</button>
+          <div class='d-flex justify-content-center gap-2 mb-3'>
+            <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-outline-light">Save changes</button>
           </div>
         </div>
       </div>
@@ -188,6 +227,8 @@ const app = (selectType: string) => {
   helpers.generateHtmlParkCards(parks);
   // Attaching modal to cards
   helpers.attachModal();
+  //
+  addInformationContent(parks);
 
   const card = document.querySelector(".modal");
   card?.addEventListener("click", (e) => {
@@ -205,6 +246,7 @@ window.addEventListener("load", () => {
   populateDropdown(parkTypeData, selectByType);
   // Populates location type dropdown
   populateDropdown(locationsArray, selectByLocation);
+  addInformationContent(parks);
 });
 
 selectByType.addEventListener("change", () => {
@@ -215,5 +257,3 @@ selectByLocation.addEventListener("change", () => {
   selectByType.selectedIndex = 0;
   app("location");
 });
-
-parksContainer.addEventListener("click", (e) => {});
