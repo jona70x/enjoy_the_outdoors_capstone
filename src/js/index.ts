@@ -2,8 +2,8 @@
 
 // Import our custom CSS and boostrap modules
 import "../scss/styles.scss";
-// Import all of Bootstrap's JS
 import * as bootstrap from "bootstrap";
+// Import all of Bootstrap's JS
 
 // Importing park data
 
@@ -26,9 +26,7 @@ const parksContainer = document.querySelector(
   ".parks-container"
 ) as HTMLDivElement;
 
-const buttonsContainer = document.querySelector(
-  ".buttons-container"
-) as HTMLDivElement;
+const buttonAll = document.querySelector(".btn-all") as HTMLButtonElement;
 
 const myModal = document.querySelector(".modal") as HTMLDivElement;
 let cardModal: Modal;
@@ -122,6 +120,13 @@ const helpers: Helpers = {
       if (parkIndex !== undefined) {
         actualPark = parks[parseInt(parkIndex)];
         actualParkIndex = parseInt(parkIndex);
+
+        const visitLink = actualPark.Visit
+          ? `<li><span class='fw-bold'>Visit: </span> <a target='_blank' href='${actualPark.Visit}'>${actualPark.Visit}</a></li>`
+          : "";
+
+        console.log(visitLink);
+
         // Generate modal content
         myModal.innerHTML = `
       <div class="modal-dialog modal-dialog-centered">
@@ -140,7 +145,7 @@ const helpers: Helpers = {
                         }</li>
                       <li><span class='fw-bold'>City: </span>${
                         actualPark.City
-                      }, ${actualPark.State}. ${actualPark.ZipCode}</li>
+                      }, ${actualPark.State} ${actualPark.ZipCode}.</li>
                       <li><span class='fw-bold'>Phone: </span>${
                         actualPark.Phone === 0
                           ? "No Phone Available"
@@ -151,9 +156,11 @@ const helpers: Helpers = {
                           ? "No Fax Available"
                           : actualPark.Fax
                       }</li>
+                      
                       <li><span class='fw-bold'>Coordinates: </span>${
                         actualPark.Latitude
                       }, ${actualPark.Longitude}</li>
+                     ${visitLink}
                     </ul>
               
                   
@@ -221,6 +228,8 @@ const app = (selectType: string) => {
       parks.push(park);
     } else if (park.State.toLowerCase() === selectedValue) {
       parks.push(park);
+    } else if (selectType === "all") {
+      parks.push(park);
     }
   }
   // Generating html cards
@@ -256,4 +265,10 @@ selectByType.addEventListener("change", () => {
 selectByLocation.addEventListener("change", () => {
   selectByType.selectedIndex = 0;
   app("location");
+});
+
+buttonAll.addEventListener("click", () => {
+  selectByLocation.selectedIndex = 0;
+  selectByType.selectedIndex = 0;
+  app("all");
 });

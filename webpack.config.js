@@ -9,6 +9,8 @@ module.exports = {
   mode: "development",
   entry: {
     main: "./src/js/index.ts",
+    parks: "./src/js/parks.ts",
+    mountains: "./src/js/mountains.ts",
   },
   output: {
     filename: "[name].js",
@@ -25,14 +27,16 @@ module.exports = {
       filename: "index.html",
       chunks: ["main"],
     }),
-    // new CopyWebpackPlugin({
-    //   patterns: [
-    //     {
-    //       from: "node_modules/leaflet/dist/images",
-    //       to: "images",
-    //     },
-    //   ],
-    // }),
+    new HtmlWebpackPlugin({
+      template: "./src/parks.html",
+      filename: "parks.html",
+      chunks: ["parks"],
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/mountains.html",
+      filename: "mountains.html",
+      chunks: ["mountains"],
+    }),
   ],
   module: {
     rules: [

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Enjoy the outdoors 🏔️</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">Logo</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="parks.html">Parks</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="mountains.html">Mountains</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!-- Video and some other content -->
+      <div class="container-fluid">
+        <section class="row">
+          <div class="col position-relative" style="height: 30rem">
+            <!-- Video Box -->
+            <div class="bg-video">
+              <video class="bg-video__content" autoplay muted loop>
+                <source src="assets/parks-video.mp4" type="video/mp4" />
+                Your browser is not supported!
+              </video>
+            </div>
+            <!-- Text Box -->
+            <h1 class="position-absolute hero-text">
+              <span class="hero-text--main display-3">Outdoors</span>
+              <span class="hero-text--sub">Is where life happens</span>
+            </h1>
+          </div>
+        </section>
+      </div>
+
+      <!-- Dropdown section -->
+      <section class="container-fluid">
+        <div class="col-12 my-5 text-center">
+          <h2 class="title-custom">Exploring America's Natural Treasures</h2>
+        </div>
+        <div class="row gap-2 justify-content-center p-2 mx-2">
+          <div
+            class="col-12 align-self-start col-md-8 col-lg-4 row flex-column h-lg-100 gap-3 p-4 mt-lg-2 select-container"
+          >
+            <!-- Select by location -->
+
+            <div class="col-12 mb-2">
+              <h5 class="mb-2">Search by Location</h5>
+              <select
+                name="select-park-location"
+                id="select-park-location"
+                class="form-select"
+              >
+                <!-- Add options with js -->
+              </select>
+            </div>
+
+            <!-- Select by park type -->
+
+            <div class="col-12 mb-3">
+              <h5 class="mb-2">Search by Type</h5>
+              <select
+                name="select-park-type"
+                id="select-park-type"
+                class="form-select"
+              >
+                <!-- Add options with js -->
+              </select>
+            </div>
+            <div class="col-12 text-center">
+              <button class="btn btn-lg btn-success btn-all">
+                View all parks 🏔️
+              </button>
+            </div>
+          </div>
+          <!-- Parks container  -->
+          <div class="col-12 col-lg-8 custom-height">
+            <div
+              class="parks-container custom-container p-4 w-100 gap-2 flex-wrap d-flex mx-0 align-items-start justify-content-center"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Modal -->
+      <div class="modal fade"></div>
+      <!-- End of modal -->
+
+      <!-- Example card
+      
+      -->
+    </main>
+
+    <footer>
+      <!-- place footer here -->
+    </footer>
+  </body>
+</html>

@@ -528,3 +528,5 @@ const mountainsArray = [
         }
     }
 ]
+
+export default mountainsArray

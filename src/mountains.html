@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Enjoy the outdoors 🏔️</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">Logo</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="parks.html">Parks</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="mountains.html">Mountains</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!-- Video and some other content -->
+      <div class="container-fluid">
+        <section class="row">
+          <div class="col position-relative" style="height: 30rem">
+            <!-- Video Box -->
+            <div class="bg-video bg-video__mountains">
+              <video class="bg-video__content" autoplay muted loop>
+                <source src="assets/mountains-video.mp4" type="video/mp4" />
+                Your browser is not supported!
+              </video>
+            </div>
+            <!-- Text Box -->
+            <h1 class="position-absolute hero-text hero-text__mountains">
+              <span class="hero-text--main display-3">Explore</span>
+              <span class="hero-text--sub">Magnificent Mountains</span>
+            </h1>
+          </div>
+        </section>
+      </div>
+
+      <!-- Dropdown section -->
+      <section class="container-fluid">
+        <div class="col-12 my-5 text-center">
+          <h1 class="title-custom">
+            Embark on an Epic Journey to the Majestic Peaks
+          </h1>
+        </div>
+        <div class="row gap-2 justify-content-center p-2 m-2">
+          <div class="col-12 text-center mt-5">
+            <h2 class="title-custom fw-bold">
+              Discover the Wonders of Your Chosen Peak
+            </h2>
+            <h4 class="mt-4">Select one mountain</h4>
+          </div>
+          <!-- Parks container  -->
+          <div
+            class="col-12 custom-height align-items-center justify-content-center"
+          >
+            <div
+              class="mountains-container custom-container p-2 w-100 gap-3 flex-wrap d-flex my-0 align-items-center justify-content-center"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Modal -->
+      <div class="modal fade"></div>
+      <!-- End of modal -->
+    </main>
+
+    <footer>
+      <!-- place footer here -->
+    </footer>
+  </body>
+</html>
