@@ -86,7 +86,7 @@ const helpers: Helpers = {
       (parkHtml) =>
         `
         <div class="card card-background cursor-pointer mb-4 fade-in">
-        <div class="card__icon fs-2"><span>🏔️</span></div>
+        <div class="card__icon fs-2"><span>🌲</span></div>
         <h4 class="card__title">
           ${parkHtml.LocationName}
         </h4>
@@ -125,8 +125,6 @@ const helpers: Helpers = {
           ? `<li><span class='fw-bold'>Visit: </span> <a target='_blank' href='${actualPark.Visit}'>${actualPark.Visit}</a></li>`
           : "";
 
-        console.log(visitLink);
-
         // Generate modal content
         myModal.innerHTML = `
       <div class="modal-dialog modal-dialog-centered">
@@ -137,7 +135,7 @@ const helpers: Helpers = {
                 <div class="card-body">
                   <h3 class="card-title text-center mb-4">${
                     actualPark.LocationName
-                  } 🏔️</h3>
+                  } 🌲</h3>
                   <p class="card-text">
                     <ul class='lh-lg'>
                         <li><span class='fw-bold'>Address: </span>${

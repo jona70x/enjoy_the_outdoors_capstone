@@ -40,27 +40,18 @@ module.exports = {
   ],
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
       // Assets loaders
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              outputPath: "images",
-            },
-          },
-        ],
         type: "asset/resource",
-
         generator: {
           filename: "assets/[name].[contenthash][ext]", // Specify the output path for images
         },
-      },
-      // CSS Loader
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)$/i,
@@ -76,25 +67,9 @@ module.exports = {
           filename: "assets/[name].[contenthash][ext]", // Specify the output path for images
         },
       },
-      // Ts Loader Plugin
-      {
-        test: /\.ts?$/,
-        use: "ts-loader",
-        exclude: /node_modules/,
-      },
       {
         test: /\.html$/i,
         loader: "html-loader",
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"],
-          },
-        },
       },
       {
         test: /\.(scss)$/,
@@ -126,8 +101,5 @@ module.exports = {
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
-    alias: {
-      leaflet: path.resolve(__dirname, "node_modules/leaflet/dist/leaflet.js"),
-    },
   },
 };

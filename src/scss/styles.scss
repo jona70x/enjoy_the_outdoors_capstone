@@ -143,7 +143,7 @@ li {
   z-index: -1;
   opacity: 0.5;
   overflow: hidden;
-  clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
 
   &__content {
     height: 100%;
@@ -272,4 +272,9 @@ li {
 .mountain__unit {
   text-transform: capitalize;
   font-weight: 500;
+}
+
+footer {
+  background-color: $color-primary-light;
+  letter-spacing: 0.1rem;
 }
