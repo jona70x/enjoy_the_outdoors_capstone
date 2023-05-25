@@ -1,0 +1,82 @@
+// Cards
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0.3rem;
+  padding: 0.8rem;
+  width: 17rem;
+  height: 12rem;
+  border-radius: 10px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s;
+
+  &:hover {
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.01);
+  }
+
+  &__state,
+  &__icon {
+    font-size: 0.8rem;
+    position: relative;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  &__state::after {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    content: "";
+    width: 0%;
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.6);
+    transition: all 0.3s;
+  }
+
+  &__state:hover::after {
+    width: 100%;
+  }
+
+  &__title {
+    font-weight: 200;
+    font-size: 1.2rem;
+    color: black;
+  }
+
+  &-background {
+    background: radial-gradient(
+      $color-primary-light,
+      $color-primary
+    ) !important;
+  }
+}
+
+// Parks / Mountains card
+
+.park-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+}
+
+.modal-background {
+  background: radial-gradient($color-primary-light, $color-primary) !important;
+}
+
+ul {
+  margin: 0;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  line-height: inherit;
+}

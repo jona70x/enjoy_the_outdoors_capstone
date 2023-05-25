@@ -160,15 +160,12 @@ const helpers: Helpers = {
                       }, ${actualPark.Longitude}</li>
                      ${visitLink}
                     </ul>
-              
-                  
                   </p>
                 </div>
             </div>
           </div>
           <div class='d-flex justify-content-center gap-2 mb-3'>
             <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-outline-light">Save changes</button>
           </div>
         </div>
       </div>

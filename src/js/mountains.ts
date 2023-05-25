@@ -53,7 +53,7 @@ const generateMountainCards = (mountains: Mountain[]) => {
       
           <div class="mountain__details">
             <span class="mountain__icon">⬆️</span>
-            <span class="mountain__value">Elevation</span>
+            <span class="mountain__value">Elevation:</span>
             <span class="mountain__unit">${mountain.elevation} feet</span>
           </div>
      </div>
@@ -87,7 +87,10 @@ const handleCardClick = async (event: Event) => {
       actualMountain = mountainsArray[parseInt(parkIndex)];
       actualMountainIndex = parseInt(parkIndex);
 
-      const mountainSunset = await getSunsetForMountain(44.320686, -71.291742);
+      const mountainSunset = await getSunsetForMountain(
+        actualMountain.coords.lat,
+        actualMountain.coords.lng
+      );
       const sunset = mountainSunset.results.sunset;
       const sunrise = mountainSunset.results.sunrise;
 
@@ -97,11 +100,11 @@ const handleCardClick = async (event: Event) => {
           <div class="modal-content modal-background ">
             <div class="modal-body align-items-center  justify-content-center d-flex flex-column">
               <div class="card park-card overflow-hidden" style="width: 25rem; height:auto">
-              <img src="../assets/${actualMountain.img}" class="card-img-top" alt="${actualMountain.name}">
+              <img src="./assets/${actualMountain.img}" class="card-img-top" alt="${actualMountain.name}">
                   <div class="card-body">
                     <h3 class="card-title text-center mb-4">${actualMountain.name} 🏔️</h3>
                     <p class="card-text">
-                      <ul class='lh-lg'>
+                      <ul style="font-size: 14px">
                           <li><span class='fw-bold'>
                           ⬆️ Elevation: </span>${actualMountain.elevation} feet</li>
                           <li><span class='fw-bold'>
@@ -118,7 +121,6 @@ const handleCardClick = async (event: Event) => {
             </div>
             <div class='d-flex justify-content-center gap-2 mb-3'>
               <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-outline-light">Save changes</button>
             </div>
           </div>
         </div>
@@ -128,50 +130,6 @@ const handleCardClick = async (event: Event) => {
     }
   }
 };
-
-// const app = (selectType: string) => {
-//   // When a state / type park is selected, display the parks that meet the criteria
-//   helpers.cleanElement(parksContainer);
-//   const selectedOptionIndex =
-//     selectType === "location"
-//       ? selectByLocation.selectedIndex
-//       : selectByType.selectedIndex;
-//   // Calculate index of selected option
-//   const selectedOption =
-//     selectType === "location"
-//       ? (selectByLocation[selectedOptionIndex] as HTMLOptionElement)
-//       : (selectByType[selectedOptionIndex] as HTMLOptionElement);
-
-//   const selectedValue = selectedOption.value.toLowerCase();
-
-//   // Cleaning parks array
-//   parks = [];
-
-//   for (const park of nationalParksArray) {
-//     if (park.LocationName.toLowerCase().includes(selectedValue)) {
-//       // Storing generated parks
-//       parks.push(park);
-//     } else if (park.State.toLowerCase() === selectedValue) {
-//       parks.push(park);
-//     } else if (selectType === "all") {
-//       parks.push(park);
-//     }
-//   }
-//   // Generating html cards
-//   helpers.generateHtmlParkCards(parks);
-//   // Attaching modal to cards
-//   helpers.attachModal();
-//   //
-//   addInformationContent(parks);
-
-//   const card = document.querySelector(".modal");
-//   card?.addEventListener("click", (e) => {
-//     const target = e.target as HTMLButtonElement;
-//     if (target.classList.contains("btn-save")) {
-//
-//     }
-//   });
-// };
 
 // // Event Listeners
 window.addEventListener("load", () => {

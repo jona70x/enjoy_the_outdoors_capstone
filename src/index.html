@@ -32,7 +32,7 @@
             class="collapse navbar-collapse justify-content-end fs-5"
             id="navbarNav"
           >
-            <ul class="navbar-nav gap-2 text-uppercase">
+            <ul class="navbar-nav gap-2 text-uppercase fw-bold">
               <li class="nav-item">
                 <a class="nav-link" href="index.html">Home</a>
               </li>
@@ -51,71 +51,78 @@
       <!-- Video and some other content -->
       <div class="container-fluid">
         <section class="row">
-          <div class="col position-relative" style="height: 30rem">
+          <div class="col position-relative" style="height: 60rem">
             <!-- Video Box -->
-            <div class="bg-video">
+            <div class="bg-video bg-video__index">
               <video class="bg-video__content" autoplay muted loop>
-                <source src="assets/parks-video.mp4" type="video/mp4" />
+                <source src="assets/index-video.mp4" type="video/mp4" />
                 Your browser is not supported!
               </video>
             </div>
-            <!-- Text Box -->
-            <h1 class="position-absolute hero-text">
-              <span class="hero-text--main">Outdoors</span>
-              <span class="hero-text--sub">Is where life happens</span>
-            </h1>
+            <div
+              class="row justify-content-center position-absolute div-absolute gap-5 justify-content-center align-items-center mx-auto"
+            >
+              <div class="col-12 mb-4">
+                <h1 class="text-center text-uppercase fw-bold display-1">
+                  Enjoy the outdoors
+                </h1>
+              </div>
+              <!-- first index card -->
+              <div class="col-12 col-sm-9 col-md-7 col-lg-5 col-xl-4">
+                <div class="card-index">
+                  <div class="card-index__side card-index__side--front">
+                    <div class="card-index__picture card-index__picture--2">
+                      &nbsp;
+                    </div>
+                    <h4 class="card-index__heading">
+                      <span
+                        class="card-index__heading-span card-index__heading-span--1"
+                        >Explore Parks</span
+                      >
+                    </h4>
+                  </div>
+                  <div
+                    class="card-index__side card-index__side--back card-index__side--back-1"
+                  >
+                    <div class="card-index__cta">
+                      <div class="card-index__price-box">
+                        <a class="btn-custom" href="parks.html">Check Parks</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Second Card -->
+              <div class="col-12 col-sm-9 col-md-7 col-lg-5 col-xl-4">
+                <div class="card-index">
+                  <div class="card-index__side card-index__side--front">
+                    <div class="card-index__picture card-index__picture--1">
+                      &nbsp;
+                    </div>
+                    <h4 class="card-index__heading">
+                      <span
+                        class="card-index__heading-span card-index__heading-span--1"
+                        >Explore Mountains</span
+                      >
+                    </h4>
+                  </div>
+                  <div
+                    class="card-index__side card-index__side--back card-index__side--back-1"
+                  >
+                    <div class="card-index__cta">
+                      <div class="card-index__button-box">
+                        <a class="btn-custom" href="mountains.html"
+                          >Check Mountains</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </div>
-
-      <!-- Dropdown section -->
-      <section class="container-fluid">
-        <div class="col-12 my-5 text-center">
-          <h2 class="title-custom">Exploring America's Natural Treasures</h2>
-        </div>
-        <div class="row gap-2 justify-content-center p-2 mx-2">
-          <div
-            class="col-12 align-self-start col-md-8 col-lg-4 row flex-column h-lg-100 gap-3 p-4 mt-lg-2 select-container"
-          >
-            <!-- Select by location -->
-
-            <div class="col-12 mb-2">
-              <h5 class="mb-2">Search by Location</h5>
-              <select
-                name="select-park-location"
-                id="select-park-location"
-                class="form-select"
-              >
-                <!-- Add options with js -->
-              </select>
-            </div>
-
-            <!-- Select by park type -->
-
-            <div class="col-12 mb-3">
-              <h5 class="mb-2">Search by Type</h5>
-              <select
-                name="select-park-type"
-                id="select-park-type"
-                class="form-select"
-              >
-                <!-- Add options with js -->
-              </select>
-            </div>
-            <div class="col-12 text-center">
-              <button class="btn btn-lg btn-success btn-all">
-                View all parks 🏔️
-              </button>
-            </div>
-          </div>
-          <!-- Parks container  -->
-          <div class="col-12 col-lg-8 custom-height">
-            <div
-              class="parks-container custom-container p-4 w-100 gap-2 flex-wrap d-flex mx-0 align-items-start justify-content-center"
-            ></div>
-          </div>
-        </div>
-      </section>
 
       <!-- Modal -->
       <div class="modal fade"></div>

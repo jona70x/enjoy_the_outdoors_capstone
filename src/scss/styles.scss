@@ -1,5 +1,6 @@
 // Import all of Bootstrap's CSS
 // Import all of Bootstrap's CSS
+@import "base/_variables";
 @import "bootstrap/scss/bootstrap";
 @import "bootstrap/scss/utilities";
 // @import "abstracts/mixins";
@@ -10,16 +11,6 @@ body {
   background-color: #f7f7f7;
 }
 
-$color-brand--1: #ffb545;
-$color-brand--2: #00c46a;
-$color-dark--2: #323229;
-
-$color-primary: #55c57a;
-$color-primary-light: #7ed56f;
-$color-secondary: #28b485;
-$color-tertiary: #198754;
-$color-black: black;
-$color-white: white;
 .cursor-pointer {
   cursor: pointer;
 }
@@ -154,6 +145,10 @@ li {
   &__mountains {
     clip-path: polygon(100% 0, 100% 100%, 50% 75%, 0 100%, 0 25%, 0% 0%);
   }
+
+  &__index {
+    clip-path: inset(0 0 0 0);
+  }
 }
 
 .hero-text {
@@ -162,7 +157,7 @@ li {
   backface-visibility: hidden;
   margin-bottom: 6rem;
   text-align: center;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
@@ -275,5 +270,222 @@ li {
 }
 
 footer {
-  background-color: $color-primary-light;
+  background-color: #d2b48c;
+}
+
+// Cards
+
+.card-index {
+  // FUNCTIONALITY
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 20rem;
+
+  &__side {
+    height: 20rem;
+    transition: all 0.8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.3);
+
+    &--back {
+      transform: rotateY(180deg);
+
+      &--1 {
+        background-color: transparent;
+      }
+    }
+  }
+
+  &:hover &__side--front {
+    transform: rotateY(-180deg);
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0);
+  }
+
+  // FRONT SIDE STYLING
+  &__picture {
+    background-size: cover;
+    height: 20rem;
+    background-blend-mode: screen;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    &--1 {
+      background-image: linear-gradient(to right bottom, #6f4e37, #d2b48c),
+        url(../assets/index-background.jpg);
+    }
+    &--2 {
+      background-image: linear-gradient(to right bottom, #6f4e37, #d2b48c),
+        url(../assets/parks-index.jpg);
+    }
+  }
+
+  &__heading {
+    font-size: 2.2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: center;
+    color: $color-white;
+    position: absolute;
+    top: 9rem;
+    // transform: translate(-50%, -50%);
+    width: 100%;
+  }
+
+  &__heading-span {
+    padding: 0.8rem 0.8rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+
+    &--1 {
+      height: 100%;
+      background-image: linear-gradient(
+        to right bottom,
+        rgba($color-brown-1, 0.85),
+        rgba($color-brown-2, 0.85)
+      );
+    }
+  }
+
+  // FRONT SIDE STYLING
+  &__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+  }
+}
+
+// Row absoulte
+
+.div-absolute {
+  width: 100%;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+}
+
+// custom button
+.btn-custom {
+  &,
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 2rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    font-size: 1rem;
+    background-color: $color-white;
+    color: $color-black;
+
+    //Change for the <button> element
+    border: none;
+    cursor: pointer;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s;
+  }
+
+  &--animated {
+    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation-fill-mode: backwards;
+  }
+}
+
+.btn-text {
+  &:link,
+  &:visited {
+    font-size: 1rem;
+    color: $color-primary;
+    display: inline-block;
+    text-decoration: none;
+    border-bottom: 1px solid $color-primary;
+    padding: 3px;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.15);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.15);
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
 }
