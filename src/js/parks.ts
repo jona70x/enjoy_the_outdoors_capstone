@@ -116,7 +116,7 @@ const helpers: Helpers = {
     const card = target.closest(".card") as HTMLDivElement;
     if (card) {
       const parkIndex = card.dataset.parkIndex;
-      console.log(parkIndex);
+
       if (parkIndex !== undefined) {
         actualPark = parks[parseInt(parkIndex)];
         actualParkIndex = parseInt(parkIndex);
@@ -233,15 +233,6 @@ const app = (selectType: string) => {
   helpers.attachModal();
   //
   addInformationContent(parks);
-
-  const card = document.querySelector(".modal");
-  card?.addEventListener("click", (e) => {
-    const target = e.target as HTMLButtonElement;
-    if (target.classList.contains("btn-save")) {
-      console.log("running");
-      console.log(actualParkIndex);
-    }
-  });
 };
 
 // Event Listeners

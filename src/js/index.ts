@@ -11,4 +11,3 @@ import parkTypeData from "./data/parkTypeData";
 import locationsArray from "./data/locationData";
 import nationalParksArray from "./data/nationalParkData";
 import { Modal } from "bootstrap";
-console.log(bootstrap);
