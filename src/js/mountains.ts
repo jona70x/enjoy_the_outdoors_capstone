@@ -97,7 +97,7 @@ const handleCardClick = async (event: Event) => {
           <div class="modal-content modal-background ">
             <div class="modal-body align-items-center  justify-content-center d-flex flex-column">
               <div class="card park-card overflow-hidden" style="width: 25rem; height:auto">
-              <img src="./assets/${actualMountain.img}" class="card-img-top" alt="${actualMountain.name}">
+              <img src="../assets/${actualMountain.img}" class="card-img-top" alt="${actualMountain.name}">
                   <div class="card-body">
                     <h3 class="card-title text-center mb-4">${actualMountain.name} 🏔️</h3>
                     <p class="card-text">
@@ -105,7 +105,7 @@ const handleCardClick = async (event: Event) => {
                           <li><span class='fw-bold'>
                           ⬆️ Elevation: </span>${actualMountain.elevation} feet</li>
                           <li><span class='fw-bold'>
-                         🏋🏼 Effort: </span>${actualMountain.effort} feet</li>
+                         🏋🏼 Effort: </span>${actualMountain.effort}</li>
                         <li><span class='fw-bold'>📝 Description: </span>${actualMountain.desc}</li>
                         <li><span class='fw-bold'>🗺️ Coordinates: </span>${actualMountain.coords.lat}, ${actualMountain.coords.lng}</li>
                         <li><span class='fw-bold'>☀️ Sunrise: </span>${sunrise} UTC </li>
